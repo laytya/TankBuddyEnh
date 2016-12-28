@@ -712,7 +712,9 @@ function TB_Close()
 		TBSettings[TBSettingsCharRealm].RemoveBuffsInDefensiveBear = TB_EditboxRemoveBuffsInDefensiveBear:GetText();
 	else
 		TBSettings[TBSettingsCharRealm].Announcements[TB_Tabs[TankBuddyEnhFrame.selectedTab][1]]["Text"] = TB_EditboxText:GetText();
-		TBSettings[TBSettingsCharRealm].Announcements[TB_GUI_Taunt]["RecoveryText"] = TB_MBRecoveryEditboxText:GetText();
+		if TBSettings[TBSettingsCharRealm].Announcements[TB_GUI_Taunt] then
+			TBSettings[TBSettingsCharRealm].Announcements[TB_GUI_Taunt]["RecoveryText"] = TB_MBRecoveryEditboxText:GetText();
+		end
 	end
 end
 
