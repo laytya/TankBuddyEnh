@@ -519,7 +519,7 @@
 			</CheckButton>
 			<CheckButton name="TB_Tab9" inherits="TB_TabTemplate" id="9">
 				<Anchors>
-					<Anchor point="TOPLEFT" relativeTo="TB_Tab7" relativePoint="BOTTOMLEFT">
+					<Anchor point="TOPLEFT" relativeTo="TB_Tab8" relativePoint="BOTTOMLEFT">
 						<Offset>
 							<AbsDimension x="0" y="-17"/>
 						</Offset>

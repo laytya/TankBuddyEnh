@@ -9,6 +9,32 @@
 -	Kane from Magtherion EU (retired)
 -	Contact: http://www.curse-gaming.com | USER NAME: Kane
 --]]
+local L = AceLibrary("AceLocale-2.2"):new("TankBuddy")
+local BS = AceLibrary("Babble-Spell-2.2")
+TankBuddy = AceLibrary("AceAddon-2.0"):new("AceEvent-2.0")
+
+
+function TankBuddy:OnEnable()
+    local _, class = UnitClass("player")
+	local _, race = UnitRace("player")
+
+	if class == "WARRIOR" or class == "DRUID" then
+		self:RegisterEvent("SpellStatus_SpellCastInstant")
+	end	
+end
+
+function TankBuddy:SpellStatus_SpellCastInstant(sId, sName, sRank, sFullName, sCastTime)
+	local TBAbility = "";
+	if sName == BS["Challenging Shout"] then
+		TBAbility = TB_GUI_CS;
+	elseif sName == BS["Challenging Roar"] then
+		TBAbility = TB_GUI_CR;
+	end
+	
+	if (TBAbility and TBAbility ~= "") then
+		TB_Announce(TBAbility);
+	end
+end
 
 
 -- Globals
@@ -87,7 +113,7 @@ function TB_OnLoad()
 		TB_EditboxRemoveBuffsInDefensiveBear:Hide();
 	end
 	NUM_TB_TABS = getn(TB_Tabs);
-	MAX_TB_TABS = 8;
+	MAX_TB_TABS = 9;
 	
 	TankBuddyEnhFrame:RegisterEvent("VARIABLES_LOADED");					-- Jump to event function when variables are loaded
 	
