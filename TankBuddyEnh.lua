@@ -1,4 +1,4 @@
-﻿--[[
+--[[
 - Tank Buddy 2.1
 - Author: Kolthor from Doomhammer EU
 - Contact: http://www.curse-gaming.com | USER NAME: Kolthor
@@ -67,7 +67,8 @@ function TB_OnLoad()
 			{ TB_GUI_CS, "Interface\\Icons\\Ability_BullRush" },
 			{ TB_GUI_LG, "Interface\\Icons\\INV_Misc_Gem_Pearl_05" },
 			{ TB_GUI_PM, "Interface\\Icons\\inv_gauntlets_04"},
-			{ TB_GUI_SB, "Interface\\Icons\\ability_warrior_shieldbash"}
+			{ TB_GUI_SB, "Interface\\Icons\\ability_warrior_shieldbash"},
+			{ TB_GUI_RES, "Interface\\Icons\\Spell_Fire_Fire"}
 		};
 		TB_TankForm = 2;	--Defensive stance has Shapeshiftform number 2
 		SalvDefensiveBearText:SetText(TB_GUI_RemoveBuffsDefensive);
@@ -113,7 +114,7 @@ function TB_OnLoad()
 		TB_EditboxRemoveBuffsInDefensiveBear:Hide();
 	end
 	NUM_TB_TABS = getn(TB_Tabs);
-	MAX_TB_TABS = 9;
+	MAX_TB_TABS = 10;
 	
 	TankBuddyEnhFrame:RegisterEvent("VARIABLES_LOADED");					-- Jump to event function when variables are loaded
 	
@@ -282,6 +283,14 @@ function TB_OnEvent(event)
 			end
 		end
 
+	-- Ragnaros's Wrath of Ragnaros was resisted.
+	elseif(event == "CHAT_MSG_SPELL_CREATURE_VS_SELF_DAMAGE") then
+		if (englishClass == "WARRIOR") then
+			if (string.find(arg1, TB_res)) then
+				TBAbility = TB_GUI_RES;
+			end
+		end
+	
 	elseif(event == "CHAT_MSG_SPELL_PERIODIC_SELF_BUFFS") then
 		if (englishClass == "WARRIOR") then
 			if (string.find(arg1, TB_sw)) then
@@ -626,6 +635,7 @@ function TB_register()
 	TankBuddyEnhFrame:RegisterEvent("CHAT_MSG_SPELL_SELF_DAMAGE");
 	TankBuddyEnhFrame:RegisterEvent("CHAT_MSG_SPELL_PERIODIC_SELF_BUFFS");
 	TankBuddyEnhFrame:RegisterEvent("UNIT_SPELLCAST_SUCCEEDED");
+	TankBuddyEnhFrame:RegisterEvent("CHAT_MSG_SPELL_CREATURE_VS_SELF_DAMAGE");
 	if (TBSettings[TBSettingsCharRealm].AlwaysRemoveBuffstatus) then
 		TankBuddyEnhFrame:RegisterEvent("PLAYER_AURAS_CHANGED");
 	end
@@ -638,6 +648,7 @@ function TB_unregister()
 	TankBuddyEnhFrame:UnregisterEvent("CHAT_MSG_SPELL_SELF_DAMAGE");
 	TankBuddyEnhFrame:UnregisterEvent("CHAT_MSG_SPELL_PERIODIC_SELF_BUFFS");
 	TankBuddyEnhFrame:UnregisterEvent("UNIT_SPELLCAST_SUCCEEDED");
+	TankBuddyEnhFrame:UnregisterEvent("CHAT_MSG_SPELL_CREATURE_VS_SELF_DAMAGE");
 	if (not TBSettings[TBSettingsCharRealm].AlwaysRemoveBuffstatus) then
 		TankBuddyEnhFrame:UnregisterEvent("PLAYER_AURAS_CHANGED");
 	end
