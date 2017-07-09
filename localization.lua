@@ -1,4 +1,4 @@
-﻿--
+--
 -- Localization file for Tank Buddy v3.0
 --
 
@@ -36,6 +36,7 @@ TB_GUI_KC_MISSED = "Kick Missed";
 TB_GUI_PM_MISSED = "Pummel Missed";
 TB_GUI_Growl = "Growl";
 TB_GUI_CR = "Challenging Roar";
+TB_GUI_RES = "Ragnaros Knockback";
 TB_GUI_KC = "Kick";
 TB_GUI_PL = "Polymorph";
 TB_GUI_BN = "Banish";
@@ -53,7 +54,8 @@ TB_GUI_EnterNewText = {
 	[TB_GUI_LG] = "Enter new announcement text for using lifegiving gem:",
 	[TB_GUI_CS] = "Enter new announcement text for using challenging shout:",
 	[TB_GUI_Growl] = "Enter new announcement text for resisted growls:",
-	[TB_GUI_CR] = "Enter new announcement text for using challenging roar:"
+	[TB_GUI_CR] = "Enter new announcement text for using challenging roar:",
+	[TB_GUI_RES] = "Enter new announcement text for resisting Ragnaros's knockback:"
 }
 TB_GUI_EnterNewMBRecoveryText = "Enter new announcement text for recovered taunts:";
 TB_GUI_RemoveBuffs = "Buff removal";
@@ -90,6 +92,7 @@ TB_defaultText = {
 	[TB_GUI_CS] = "- I activated Challenging Shout! I will need a lot of healing for $sec seconds! -";
 	[TB_GUI_Growl] = "- My Growl has been resisted by $tn! -";
 	[TB_GUI_CR] = "- I activated Challenging Roar! I will need a lot of healing for $sec seconds! -";
+	[TB_GUI_RES] = "- I resisted Ragnaros's Knockback! You can move back in now! -";
 }
 TB_defaultText_r = "- My Mocking Blow RECOVERED my resisted taunt! -";
 
@@ -108,6 +111,7 @@ TB_mb = "(.*)Mocking Blow(.*)";
 TB_pm = "(.*)Pummel(.*)";
 TB_sb = "(.*)Shield Bash(.*)";
 TB_kc = "(.*)Kick(.*)";
+TB_res = "Ragnaros's Wrath of Ragnaros was resisted.";
 TB_ls = "You gain Last Stand.";
 TB_sw = "You gain Shield Wall.";
 TB_lg = "You gain Gift of Life.";
