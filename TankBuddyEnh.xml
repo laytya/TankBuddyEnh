@@ -1,4 +1,4 @@
-﻿<Ui xmlns="http://www.blizzard.com/wow/ui/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.blizzard.com/wow/ui/..\FrameXML\UI.xsd">
+<Ui xmlns="http://www.blizzard.com/wow/ui/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.blizzard.com/wow/ui/..\FrameXML\UI.xsd">
 	<Script file="localization.lua"/>
 	<Script file="TankBuddyEnh.lua"/>
 
@@ -520,6 +520,15 @@
 			<CheckButton name="TB_Tab9" inherits="TB_TabTemplate" id="9">
 				<Anchors>
 					<Anchor point="TOPLEFT" relativeTo="TB_Tab8" relativePoint="BOTTOMLEFT">
+						<Offset>
+							<AbsDimension x="0" y="-17"/>
+						</Offset>
+					</Anchor>
+				</Anchors>
+			</CheckButton>
+			<CheckButton name="TB_Tab10" inherits="TB_TabTemplate" id="10">
+				<Anchors>
+					<Anchor point="TOPLEFT" relativeTo="TB_Tab9" relativePoint="BOTTOMLEFT">
 						<Offset>
 							<AbsDimension x="0" y="-17"/>
 						</Offset>
